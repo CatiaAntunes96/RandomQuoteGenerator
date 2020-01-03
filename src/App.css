@@ -1,38 +1,50 @@
-.App {
+body {
+  margin: 0px;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.child-container {
+  align-self: center;
+}
+
+h1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+  display: inline-block;
+  margin: 0% 30%;
+  padding: 20px 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#author {
+  text-align: end;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.new-quote {
+  display: block;
+  margin-left: auto;
+  height: fit-content;
+}
+
+.twitter-logo {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.clickable-elems {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  flex-flow: row-reverse;
+  margin: 0% 30%;
 }
