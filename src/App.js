@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
+import twitter from "./twitter-logo.png";
 import './App.css';
 
 function App() {
   const [index, setIndex] = useState("");
-
+  
   const OriginateIndex = () => {
     setIndex((Math.floor(Math.random() * quotes.length + 1)))
     console.log(setIndex)
   }
-
+  
   useEffect(() => {
     OriginateIndex()
   }, []) //[] allows the function to only be executed onload of the page
-
+  
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
     "But in the end it’s only a passing thing, this shadow; even darkness must pass.",
@@ -49,19 +50,30 @@ function App() {
     "Gandalf",
     "Gandalf"
   ];
-
- const displayQuote = quotes[index];
- const displayAuthor = author[index];
-
+  
+  const displayQuote = '"' + quotes[index] + '"';
+  const displayAuthor = "-" + author[index];
+  
+  
+  
   return (
-    <div id="quote-box" onLoad={OriginateIndex}>
-      <h1>Random Quote Generator</h1>
-      <p id="text">{displayQuote}</p>
-      <span id="author">{displayAuthor}</span>
-      <button id="new-quote" onClick={OriginateIndex}>Click Me</button>
-      <a id="tweet-quote" href="twitter.com/intent/tweet"></a>
+    <div id="quote-box" onLoad={OriginateIndex} className="container">
+    <div className="child-container">
+    <h1>Random Quote Generator</h1>
+    <section className="content">
+    <p id="text">{displayQuote}</p>
+    <p id="author">{displayAuthor}</p><br />
+    </section>
+    <section className="clickable-elems">
+    <button id="new-quote" className="new-quote" onClick={OriginateIndex}>Click Me</button><br />
+    <a id="tweet-quote" href="twitter.com/intent/tweet"><img src={twitter} alt="twitter-logo" className="twitter-logo"></img></a>
+    </section>
+    
     </div>
-  );
-}
-
-export default App;
+    
+    </div>
+    );
+  }
+  
+  export default App;
+  
