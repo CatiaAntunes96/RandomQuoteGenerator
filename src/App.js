@@ -47,6 +47,9 @@ function App() {
     <div>
       <h1>Random Quote Generator</h1>
       <button >Click Me</button>
+      <span id="author"></span>
+      <button id="new-quote">Click Me</button>
+      <a id="tweet-quote"></a> {/*Adicionar href */}
     </div>
   );
 }
