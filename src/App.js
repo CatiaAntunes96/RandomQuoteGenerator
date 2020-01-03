@@ -6,7 +6,7 @@ function App() {
   const [index, setIndex] = useState("");
   
   const OriginateIndex = () => {
-    setIndex((Math.floor(Math.random() * quotes.length + 1)))
+    setIndex((Math.floor(Math.random() * quotes.length)))
     console.log(setIndex)
   }
   
