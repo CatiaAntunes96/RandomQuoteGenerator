@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
   const [index, setIndex] = useState("");
 
+  const OriginateIndex = () => {
+    setIndex((Math.floor(Math.random() * quotes.length + 1)))
+    console.log(setIndex)
+  }
+
+  useEffect(() => {
+    OriginateIndex()
+  }, []) //[] allows the function to only be executed onload of the page
 
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
@@ -41,12 +48,18 @@ function App() {
     "Gandalf",
     "Gandalf",
     "Gandalf"
-  ]
+  ];
+
+ const displayQuote = quotes[index];
+ const displayAuthor = author[index];
 
   return (
-    <div>
+    <div id="quote-box" onLoad={OriginateIndex}>
       <h1>Random Quote Generator</h1>
-      <button >Click Me</button>
+      <p id="text">{displayQuote}</p>
+      <span id="author">{displayAuthor}</span>
+      <button id="new-quote" onClick={OriginateIndex}>Click Me</button>
+      <a id="tweet-quote" href="twitter.com/intent/tweet"></a>
     </div>
   );
 }
