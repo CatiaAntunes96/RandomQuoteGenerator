@@ -52,7 +52,7 @@ function App() {
   ];
   
   const displayQuote = '"' + quotes[index] + '"';
-  const displayAuthor = "-" + author[index];
+  const displayAuthor = "- " + author[index];
   
   
   
@@ -65,8 +65,8 @@ function App() {
     <p id="author">{displayAuthor}</p><br />
     </section>
     <section className="clickable-elems">
-    <button id="new-quote" className="new-quote" onClick={OriginateIndex}>Click Me</button><br />
-    <a id="tweet-quote" href="twitter.com/intent/tweet"><img src={twitter} alt="twitter-logo" className="twitter-logo"></img></a>
+    <button id="new-quote" className="new-quote" onClick={OriginateIndex}>New Quote</button><br />
+    <a id="tweet-quote" href="http://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="twitter-logo" className="twitter-logo"></img></a>
     </section>
     
     </div>

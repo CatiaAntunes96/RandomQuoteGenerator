@@ -22,18 +22,15 @@ body {
 
 .child-container {
   align-self: center;
-  background-color: #2b2929;
-  opacity: 0.6;
+  background-color: rgba(43, 41, 41, 0.8);
   border-radius: 3%;
   width: 100%;
-  max-height: 350px;
-  min-height: 350px;
-
+  max-height: max-content;
 }
 
 h1 {
   text-align: center;
-  color: gold;
+  color: #af931b;
 }
 
 .content {
@@ -41,15 +38,24 @@ h1 {
   margin: 0% 10%;
   padding: 20px 0px;
   color: white;
+  width: 80%;
 }
 
 #author {
   text-align: end;
+  font-family: 'Dancing Script', cursive;
+}
+
+#text {
+  font-style: italic; 
+  text-align: center;
+  font-size: 18px;
 }
 
 .new-quote {
   display: block;
   margin-left: auto;
+  margin-right: 20px;
   height: fit-content;
   padding:0.4em 1.5em;
   border:0.16em solid rgba(255,255,255,0);
@@ -62,13 +68,13 @@ h1 {
   font-size: 15px;
   color: white;
   font-weight: bold;
-  background-color: gold;
+  background-color: #af931b;
 }
 
 .twitter-logo {
   width: 40px;
   height: 40px;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .clickable-elems {
@@ -77,4 +83,56 @@ h1 {
   margin-block-end: 0.67em;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) {
+  .container {
+    max-width: 80%;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .content {
+    padding: 0px 0px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .container {
+    max-width: 80%;
+  }
+  .child-container{
+    max-height: 500px;
+  }
+  h1 {
+    font-size: 45px;
+  }
+  #text{
+    font-size: 30px;
+  }
+  #author{
+    font-size: 25px;
+  }
+  .new-quote{
+    font-size: 20px;
+  }
+  .twitter-logo{
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  .child-container {
+    max-height: 600px;
+  }
+  .new-quote {
+    font-size: 18px;
+    margin-right: 0px;
+    padding: 0.3em 1em;
+  }
+  .twitter-logo {
+    width: 30px;
+    height: 30px;
+  }
 }
