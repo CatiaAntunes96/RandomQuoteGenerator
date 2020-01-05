@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import ReactDOM from "react-dom";
 import twitter from "./twitter-logo.png";
 import './App.css';
 
-function App() {
+const loader = document.querySelector('.loader');
+const hideLoader = () => loader.classList.add('loader--hide');
+const showLoader = () => loader.classList.remove('loader--hide');
+
+function App({ hideLoader }) {
+
   const [index, setIndex] = useState("");
   
   const OriginateIndex = () => {
@@ -13,6 +19,8 @@ function App() {
   useEffect(() => {
     OriginateIndex()
   }, []) //[] allows the function to only be executed onload of the page
+
+  useEffect(() => hideLoader(), []);
   
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
@@ -54,8 +62,6 @@ function App() {
   const displayQuote = '"' + quotes[index] + '"';
   const displayAuthor = "- " + author[index];
   
-  
-  
   return (
     <div id="quote-box" onLoad={OriginateIndex} className="container">
     <div className="child-container">
@@ -68,12 +74,21 @@ function App() {
     <button id="new-quote" className="new-quote" onClick={OriginateIndex}>New Quote</button><br />
     <a id="tweet-quote" href="http://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="twitter-logo" className="twitter-logo"></img></a>
     </section>
-    
     </div>
-    
     </div>
     );
   }
+
+  setTimeout(() => 
+  // the show/hide functions are passed as props
+  ReactDOM.render(
+    <App
+      hideLoader={hideLoader}
+      showLoader={showLoader}
+      />,
+    document.getElementById('app')
+  )
+, 1000);
   
   export default App;
   
