@@ -1,13 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import ReactDOM from "react-dom";
 import twitter from "./twitter-logo.png";
 import './App.css';
 
-const loader = document.querySelector('.loader');
-const hideLoader = () => loader.classList.add('loader--hide');
-const showLoader = () => loader.classList.remove('loader--hide');
-
-function App({ hideLoader }) {
+function App() {
 
   const [index, setIndex] = useState("");
   
@@ -20,8 +15,6 @@ function App({ hideLoader }) {
     OriginateIndex()
   }, []) //[] allows the function to only be executed onload of the page
 
-  useEffect(() => hideLoader(), []);
-  
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
     "But in the end it’s only a passing thing, this shadow; even darkness must pass.",
@@ -79,16 +72,5 @@ function App({ hideLoader }) {
     );
   }
 
-  setTimeout(() => 
-  // the show/hide functions are passed as props
-  ReactDOM.render(
-    <App
-      hideLoader={hideLoader}
-      showLoader={showLoader}
-      />,
-    document.getElementById('app')
-  )
-, 1000);
-  
   export default App;
   
