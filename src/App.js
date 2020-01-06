@@ -3,6 +3,7 @@ import twitter from "./twitter-logo.png";
 import './App.css';
 
 function App() {
+
   const [index, setIndex] = useState("");
   
   const OriginateIndex = () => {
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     OriginateIndex()
   }, []) //[] allows the function to only be executed onload of the page
-  
+
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
     "But in the end it’s only a passing thing, this shadow; even darkness must pass.",
@@ -54,8 +55,6 @@ function App() {
   const displayQuote = '"' + quotes[index] + '"';
   const displayAuthor = "- " + author[index];
   
-  
-  
   return (
     <div id="quote-box" onLoad={OriginateIndex} className="container">
     <div className="child-container">
@@ -68,12 +67,10 @@ function App() {
     <button id="new-quote" className="new-quote" onClick={OriginateIndex}>New Quote</button><br />
     <a id="tweet-quote" href="http://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="twitter-logo" className="twitter-logo"></img></a>
     </section>
-    
     </div>
-    
     </div>
     );
   }
-  
+
   export default App;
   
