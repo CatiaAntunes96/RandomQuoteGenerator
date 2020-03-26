@@ -3,17 +3,6 @@ import twitter from "./twitter-logo.png";
 import './App.css';
 
 function App() {
-  const [index, setIndex] = useState("");
-  
-  const OriginateIndex = () => {
-    setIndex((Math.floor(Math.random() * 30)))
-    return index
-  }
-  
-  useEffect(() => {
-    OriginateIndex()
-  }, []) //[] allows the function to only be executed onload of the page
-
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
     "But in the end it’s only a passing thing, this shadow; even darkness must pass.",
@@ -50,6 +39,19 @@ function App() {
     "Gandalf",
     "Gandalf"
   ];
+  
+  const [index, setIndex] = useState("");
+  
+  const OriginateIndex = () => {
+    setIndex((Math.floor(Math.random() * author.length)))
+    return index
+  }
+  
+  useEffect(() => {
+    OriginateIndex()
+  }, []) //[] allows the function to only be executed onload of the page
+
+  
   
   const displayQuote = '"' + quotes[index] + '"';
   const displayAuthor = "- " + author[index];
