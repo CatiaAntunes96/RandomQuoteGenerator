@@ -1,20 +1,35 @@
 import React, {useState, useEffect} from 'react';
 import twitter from "./twitter-logo.png";
 import './App.css';
+import Axios from "axios";
 
 function App() {
-
+  const [x, setX] = useState([]);
   const [index, setIndex] = useState("");
   
   const OriginateIndex = () => {
-    setIndex((Math.floor(Math.random() * quotes.length)))
-    console.log(setIndex)
+    setIndex((Math.floor(Math.random() * 30)))
+    return index
   }
   
   useEffect(() => {
     OriginateIndex()
   }, []) //[] allows the function to only be executed onload of the page
 
+
+
+
+  async function fetchData() {
+    const res = await fetch("https://hn.algolia.com/api/v1/search?query=redux");
+    res.json()
+      .then(res => setX(res.hits))
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
+  
   const quotes = [
     "It’s the job that’s never started as takes longest to finish.",
     "But in the end it’s only a passing thing, this shadow; even darkness must pass.",
@@ -55,13 +70,18 @@ function App() {
   const displayQuote = '"' + quotes[index] + '"';
   const displayAuthor = "- " + author[index];
   
+
+  
+
   return (
     <div id="quote-box" onLoad={OriginateIndex} className="container">
+      <span>{<p>{x[1] && x[1].title}</p>}</span>
     <div className="child-container">
     <h1>Random Quote Generator</h1>
     <section className="content">
     <p id="text">{displayQuote}</p>
     <p id="author">{displayAuthor}</p><br />
+  
     </section>
     <section className="clickable-elems">
     <button id="new-quote" className="new-quote" onClick={OriginateIndex}>New Quote</button><br />
